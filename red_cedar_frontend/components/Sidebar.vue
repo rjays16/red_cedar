@@ -15,7 +15,7 @@
     <!-- Page Content  -->
     <div id="content" class="p-4 p-md-5 pt-5">
       <h2 class="mb-4">APG WellStar Main</h2>
-      <b-table striped hover :items="items"></b-table>
+      <b-table striped hover :items="items" :fields="fields"></b-table>
     </div>
   </div>
 </template>
@@ -26,6 +26,7 @@
       data() {
         return {
           items: [],
+          fields: [],
         }
       },
       methods: {
