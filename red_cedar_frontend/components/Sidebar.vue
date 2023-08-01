@@ -15,14 +15,32 @@
     <!-- Page Content  -->
     <div id="content" class="p-4 p-md-5 pt-5">
       <h2 class="mb-4">APG WellStar Main</h2>
-      <b-table striped hover :items="items" :fields="fields"></b-table>
+      <div class="container">
+        <div class="float-right">
+          <a href="#" class="btn btn-primary btn-sm">
+            <i class="bi bi-cloud-upload"></i> Upload CSV
+          </a>
+
+        </div>
+
+        <div class="float-right mx-2">
+          <label for="csvDownload" class="btn btn-success btn-sm">
+            <i class="bi bi-cloud-download"></i> Download CSV
+            <input type="file" id="csvDownload" style="display:none">
+          </label>
+        </div>
+      </div>
+
+      <div class="container-fluid">
+        <b-table striped hover :items="items" :fields="fields"></b-table>
+      </div>
     </div>
-  </div>
+    </div>
 </template>
 
 <script>
     export default {
-        name: "Sidebar",
+      name: "Sidebar",
       data() {
         return {
           items: [],
