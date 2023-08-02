@@ -21,15 +21,8 @@
             <!-- Page Content  -->
             <div id="content" class="p-4 p-md-5 pt-5">
               <h2 class="mb-4">APG WellStar Main</h2>
-              <div class="container">
-                    <label href="#" class="btn btn-primary btn-sm">
-                      <i class="bi bi-cloud-upload"></i> Upload CSV
-                    </label>
-                    <label for="csvDownload" class="btn btn-success btn-sm">
-                      <i class="bi bi-cloud-download"></i> Download CSV
-                      <input type="file" id="csvDownload" style="display:none">
-                    </label>
-                </div>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Upload">Upload CVS File</button>
+              <button type="button" class="btn btn-success">Download CSV File</button>
                 <b-table
                   striped hover
                   :items="items"
@@ -63,8 +56,8 @@
             </div>
             </div>
       </div>
+    <ModalUploadCSV/>
     </div>
-  </div>
 </template>
 
 <script>
