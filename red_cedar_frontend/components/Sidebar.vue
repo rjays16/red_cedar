@@ -53,7 +53,6 @@
                 </b-table>
                 <div class="w-100 m-2">
                   <b-pagination
-                    class="float-right"
                     v-model="currentPage"
                     :total-rows="rows"
                     :per-page="perPage"
