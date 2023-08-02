@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$USER_HOME$/Downloads/bootstrap-sidebar-04/.idea/bootstrap-sidebar-04.iml" filepath="$USER_HOME$/Downloads/bootstrap-sidebar-04/.idea/bootstrap-sidebar-04.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/red_cedar.iml" filepath="$PROJECT_DIR$/.idea/red_cedar.iml" />
     </modules>
   </component>

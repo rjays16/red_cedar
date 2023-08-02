@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ConsolidatedController;
+use App\Http\Controllers\FileUploadController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,4 +17,5 @@ use App\Http\Controllers\ConsolidatedController;
 
 Route::prefix('items')->group(function () {
     Route::get('', [ConsolidatedController::class,'getConsolidated']);
+    Route::post('', [FileUploadController::class,'upload']);
 });

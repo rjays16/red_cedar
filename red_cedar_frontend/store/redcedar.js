@@ -19,4 +19,21 @@ export const actions = {
         })
     })
   },
+
+  async upload({}, payload) {
+    try {
+      const formData = new FormData();
+      formData.append('file', payload.file);
+
+      const response = await axios.post('items', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  },
 };
