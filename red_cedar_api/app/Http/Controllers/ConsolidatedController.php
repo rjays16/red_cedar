@@ -49,4 +49,5 @@ class ConsolidatedController extends Controller
             return response()->json(['message' => 'Empty table'], 404);
         }
     }
+
     }

@@ -1,5 +1,5 @@
 <template>
- <Sidebar/>
+  <Biomed/>
 </template>
 
 <script>
