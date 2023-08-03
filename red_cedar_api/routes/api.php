@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ConsolidatedController;
+use App\Http\Controllers\BiomedController;
 use App\Http\Controllers\FileUploadController;
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,10 @@ use App\Http\Controllers\FileUploadController;
 |
 */
 
-Route::prefix('items')->group(function () {
-    Route::get('', [ConsolidatedController::class,'getConsolidated']);
-    Route::post('', [FileUploadController::class,'upload']);
+Route::prefix('biomed')->group(function () {
+    Route::get('', [BiomedController::class,'getConsolidated']);
+});
+
+Route::prefix('consolidated')->group(function () {
+
 });

@@ -11,6 +11,12 @@ class FileUploadController extends Controller
         if ($request->hasFile('file') && $request->file('file')->isValid()) {
             $file = $request->file('file');
             $fileName = time() . '_' . $file->getClientOriginalName();
+
+            // Check if there are any errors during the upload
+            if ($file->getError()) {
+                return response()->json(['error' => $file->getErrorMessage()], 400);
+            }
+
             $file->move(public_path('storage'), $fileName);
 
             return response()->json(['message' => 'File uploaded successfully']);

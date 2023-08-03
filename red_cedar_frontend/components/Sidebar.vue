@@ -79,7 +79,7 @@
       },
       methods: {
         getItems(){
-          this.$store.dispatch("redcedar/getAllItems")
+          this.$store.dispatch("biomed/getAllItemsBiomed")
             .then((res) => {
               this.items = res.data;
               this.isBusy = false

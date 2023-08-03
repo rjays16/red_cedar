@@ -6,7 +6,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'red_cedar_frontend',
+    title: 'Red Cedar',
     htmlAttrs: {
       lang: 'en'
     },

@@ -111,6 +111,7 @@
       <path value="$PROJECT_DIR$/red_cedar_api/vendor/league/flysystem" />
       <path value="$PROJECT_DIR$/red_cedar_api/vendor/league/mime-type-detection" />
       <path value="$PROJECT_DIR$/red_cedar_api/vendor/league/config" />
+      <path value="$PROJECT_DIR$/red_cedar_api/vendor/league/csv" />
     </include_path>
   </component>
   <component name="PhpUnit">

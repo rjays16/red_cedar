@@ -46,7 +46,8 @@
           }
 
           try {
-            const response = await this.$store.dispatch('upload', { file: this.file });
+            const response = await this.$store.dispatch('redcedar/upload', { file: this.file });
+            console.log(response);
             Swal.fire({
               title: 'Succesfully',
               text: "Successfully upload csv file",
