@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Consolidated extends Model
 {
     use HasFactory;
-    protected $table = "apgwellstarbiomed";
+    protected $table = "consolidated";
 }

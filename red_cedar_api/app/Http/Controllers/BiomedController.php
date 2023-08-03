@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class BiomedController extends Controller
 {
-    public function getConsolidated(){
+    public function getBiomed(){
         $list = DB::table('apgwellstarbiomed')->distinct()->get();
 
         if($list->isNotEmpty()) {

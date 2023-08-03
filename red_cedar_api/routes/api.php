@@ -17,9 +17,10 @@ use App\Http\Controllers\FileUploadController;
 */
 
 Route::prefix('biomed')->group(function () {
-    Route::get('', [BiomedController::class,'getConsolidated']);
+    Route::get('', [BiomedController::class,'getBiomed']);
 });
 
 Route::prefix('consolidated')->group(function () {
-
+    Route::get('', [ConsolidatedController::class,'getConsolidated']);
+    Route::get('limit', [ConsolidatedController::class,'getConsolidatedlimit']);
 });

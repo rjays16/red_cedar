@@ -78,7 +78,7 @@
         }
       },
       methods: {
-        getItems(){
+        getBiomedItems(){
           this.$store.dispatch("biomed/getAllItemsBiomed")
             .then((res) => {
               this.items = res.data;
@@ -91,7 +91,7 @@
         },
       },
       mounted() {
-        this.getItems();
+        this.getBiomedItems();
       }
     }
 </script>
