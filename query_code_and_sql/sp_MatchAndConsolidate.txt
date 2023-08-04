@@ -15,7 +15,7 @@ BEGIN
         ALTER TABLE consolidated ADD COLUMN Matches INT DEFAULT 0;
     END IF;
 
-    IF NOT EXISTS (SELECT NULL FROM information_schema.columns WHERE TABLE_NAME = 'consolidated' AND COLUMN_NAME = 'MatchedAssetTypes')
+    IF NOT EXISTS (SELECT NULL FROM information_schema.columns WHERE TABLE_NAME = 'consolidated' AND COLUMN_NAME = 'MatchedAsset Types')
     THEN
         ALTER TABLE consolidated ADD COLUMN MatchedAssetTypes VARCHAR(255);
     END IF;
