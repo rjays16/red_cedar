@@ -20,14 +20,16 @@ export const actions = {
     })
   },
 
-  getAllItemsConsolidatedXLS(){
-    return new Promise((resolve, reject) => {
-      axios.get(`${process.env.BASE_URL}consolidated/xls`)
+  exportConsolidatedWithLimit({}) {
+    return new Promise((resolve, reject) =>{
+      this.$axios.get(`${process.env.BASE_URL}consolidated/xls`, {
+        responseType: 'blob'
+      })
         .then(res => {
           resolve(res)
         })
         .catch(err => {
-          reject(err.response.data.message)
+          reject(err)
         })
     })
   },

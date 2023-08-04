@@ -16,7 +16,7 @@
                   <button type="button" class="btn btn-primary btn-block" @click="updateItems(id, inputLimit)">Go</button>
                 </div>
                 <div class="col-md-2">
-                  <button type="button" class="btn btn-success" @click="getConsolidatedItemsXLS">Download CSV File</button>
+                  <button type="button" class="btn btn-success btn-export" @click="getConsolidatedItemsXLS">Download CSV File</button>
                 </div>
               </div>
             <b-table
@@ -60,6 +60,7 @@
 
 <script>
   import Swal from 'sweetalert2';
+  import { disableButton } from "~/components/Helper/functions.js"
     export default {
         name: "Consolidated",
       data() {
@@ -92,14 +93,32 @@
             })
         },
 
+        // getConsolidatedItemsXLS(){
+        //   this.$store.dispatch("consolidated/getAllItemsConsolidatedXLS")
+        //     .then((res) => {
+        //     })
+        //     .catch(err => {
+        //     })
+        // },
+
         getConsolidatedItemsXLS(){
-          this.$store.dispatch("consolidated/getAllItemsConsolidatedXLS")
-            .then((res) => {
+          disableButton('.btn-export', true)
+          this.$store.dispatch("consolidated/exportConsolidatedWithLimit")
+            .then(res => {
+              const url = URL.createObjectURL(new Blob([res.data]))
+              const link = document.createElement('a')
+              link.href = url
+              link.setAttribute('download', "result.xlsx")
+              document.body.appendChild(link)
+              link.click()
+              document.body.removeChild(link)
+              disableButton('.btn-export', false)
             })
             .catch(err => {
+              this.$message.error('Could not export the file. Please contact the site admin.')
+              disableButton('.btn-export', false)
             })
         },
-
         getConfig(){
           this.$store.dispatch("config/getAllConfig")
             .then((res) => {
