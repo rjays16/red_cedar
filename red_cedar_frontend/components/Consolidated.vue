@@ -15,8 +15,8 @@
                 <div class="col-md-2">
                   <button type="button" class="btn btn-primary btn-block" @click="updateItems(id, inputLimit)">Go</button>
                 </div>
-                <div class="col-md-2">
-                  <button type="button" class="btn btn-success btn-export" @click="getConsolidatedItemsXLS">Download CSV File</button>
+                <div class="col-md-3">
+                  <button type="button" class="btn btn-success btn-export" @click="getConsolidatedItemsXLS">Download Excel File</button>
                 </div>
               </div>
             <b-table
