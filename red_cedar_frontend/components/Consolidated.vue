@@ -6,16 +6,17 @@
         <div class="wrapper d-flex align-items-stretch">
           <!-- Page Content  -->
           <div id="content" class="p-4 p-md-5 pt-5">
-            <h2 class="mb-4">Consolidated</h2>
-            <!--              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Upload">Upload CVS File</button>-->
-            <!--              <button type="button" class="btn btn-success">Download CSV File</button>-->
+            <h2 class="mb-4">Consolidated And Result</h2>
             <div class="container">
               <div class="row">
-                <div class="col-md-2 mb-1"> <!-- Use col-md-6 to make the input take half of the row width -->
+                <div class="col-md-2 mb-1">
                   <input type="number" class="form-control p-3" placeholder="Put limit Rows" v-model="inputLimit" />
                 </div>
-                <div class="col-md-1"> <!-- Use col-md-6 to make the button take half of the row width -->
+                <div class="col-md-2">
                   <button type="button" class="btn btn-primary btn-block" @click="updateItems(id, inputLimit)">Go</button>
+                </div>
+                <div class="col-md-2">
+                  <button type="button" class="btn btn-success">Download CSV File</button>
                 </div>
               </div>
             <b-table
