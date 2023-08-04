@@ -1,0 +1,44 @@
+DELIMITER $$
+
+USE `phgdata_db`$$
+
+DROP PROCEDURE IF EXISTS `sp_MatchAndConsolidate`$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_MatchAndConsolidate`()
+BEGIN
+    DECLARE limitRows INT;
+    SELECT limitrows INTO limitRows FROM config;
+
+    -- Step 1: Add two columns to the end of the consolidated table (if they don't exist)
+    IF NOT EXISTS (SELECT NULL FROM information_schema.columns WHERE TABLE_NAME = 'consolidated' AND COLUMN_NAME = 'Matches')
+    THEN
+        ALTER TABLE consolidated ADD COLUMN Matches INT DEFAULT 0;
+    END IF;
+
+    IF NOT EXISTS (SELECT NULL FROM information_schema.columns WHERE TABLE_NAME = 'consolidated' AND COLUMN_NAME = 'MatchedAssetTypes')
+    THEN
+        ALTER TABLE consolidated ADD COLUMN MatchedAssetTypes VARCHAR(255);
+    END IF;
+
+    -- Step 2: Retrieve the matching lines from the database
+    INSERT INTO consolidated (NAME, InScope, Matches, MatchedAssetTypes)
+    SELECT 
+        IF(a.acquisition_cost = c.BookBasis, a.name, IF(a.acquisition_cost BETWEEN (c.BookBasis * 0.95) AND (c.BookBasis * 1.05), 'Book', NULL)) AS NAME,
+        IF(a.acquisition_cost = c.BookBasis, 'Z', IF(a.acquisition_cost BETWEEN (c.BookBasis * 0.95) AND (c.BookBasis * 1.05), 'ZZZZ', NULL)) AS InScope,
+        COUNT(*) AS Matches,
+        GROUP_CONCAT(DISTINCT a.asset_type) AS MatchedAssetTypes
+    FROM apgwellstarbiomed a
+    CROSS JOIN consolidated c
+    WHERE a.u_acquisition_date BETWEEN (c.InServiceDate - INTERVAL 90 DAY) AND (c.InServiceDate + INTERVAL 90 DAY)
+    GROUP BY c.id;
+
+    -- Step 3: Remove lines with 'W' in column `InScope`
+    DELETE FROM consolidated WHERE InScope = 'W';
+
+    -- Step 4: Limit the number of rows based on the `limitRows` value from the config table
+    SET @rowNum = 0;
+    DELETE FROM consolidated WHERE (@rowNum := @rowNum + 1) > limitRows;
+END$$
+
+DELIMITER ;
+

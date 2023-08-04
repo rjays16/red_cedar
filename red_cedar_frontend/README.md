@@ -2,6 +2,37 @@
 
 ## Build Setup
 
+# -- Starts of Setup of red_cedar --
+Steps for setup checklist:
+1. Download xampp and install
+2. Download composer and install
+3. Download and install node with the version of 16.13.0
+4. Setup vhost in this path -> C:\xampp\apache\conf\extra\httpd-vhosts.conf and edit of following of this code:
+
+<VirtualHost *:80>
+	ServerName redcedar.api
+	DocumentRoot "C:/xampp/htdocs/red_cedar/red_cedar_api/public"
+	<Directory  "C:/xampp/htdocs/red_cedar/red_cedar_api/public/">
+		Options +Indexes +Includes +FollowSymLinks +MultiViews
+		AllowOverride All
+		Require local
+	</Directory>
+</VirtualHost>
+
+5. Setup host in this path -> C:\Windows\System32\drivers\etc\host Add of the following:
+127.0.0.1		redcedar.api
+
+6. Run xampp apache and Mysql and add database name checklist
+7. On the red_cedar\redcedar_api command of the following:
+- composer install
+- php artisan migrate
+
+8. On the red_cedar\red_cedar_frontend command of the following:
+- npm install
+- npm run dev
+
+# -- End of Setup of checklist --
+
 ```bash
 # install dependencies
 $ npm install

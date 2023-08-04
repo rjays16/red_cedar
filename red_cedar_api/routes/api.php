@@ -24,6 +24,7 @@ Route::prefix('biomed')->group(function () {
 Route::prefix('consolidated')->group(function () {
     Route::get('', [ConsolidatedController::class,'getConsolidated']);
     Route::get('limit', [ConsolidatedController::class,'getConsolidatedlimit']);
+    Route::get('xls', [ConsolidatedController::class, 'getConsolidatedXLS']);
 });
 
 

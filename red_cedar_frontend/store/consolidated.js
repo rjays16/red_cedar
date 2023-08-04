@@ -20,4 +20,15 @@ export const actions = {
     })
   },
 
+  getAllItemsConsolidatedXLS(){
+    return new Promise((resolve, reject) => {
+      axios.get(`${process.env.BASE_URL}consolidated/xls`)
+        .then(res => {
+          resolve(res)
+        })
+        .catch(err => {
+          reject(err.response.data.message)
+        })
+    })
+  },
 };

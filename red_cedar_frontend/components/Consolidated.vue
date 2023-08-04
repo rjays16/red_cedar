@@ -16,7 +16,7 @@
                   <button type="button" class="btn btn-primary btn-block" @click="updateItems(id, inputLimit)">Go</button>
                 </div>
                 <div class="col-md-2">
-                  <button type="button" class="btn btn-success">Download CSV File</button>
+                  <button type="button" class="btn btn-success" @click="getConsolidatedItemsXLS">Download CSV File</button>
                 </div>
               </div>
             <b-table
@@ -89,6 +89,14 @@
             .catch(err => {
               this.items = []
               this.isBusy = false
+            })
+        },
+
+        getConsolidatedItemsXLS(){
+          this.$store.dispatch("consolidated/getAllItemsConsolidatedXLS")
+            .then((res) => {
+            })
+            .catch(err => {
             })
         },
 
