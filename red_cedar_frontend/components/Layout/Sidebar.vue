@@ -12,7 +12,7 @@
         </li>
         <li class="nav-item">
           <a href="/consolidated" class="nav-link align-middle px-0">
-            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Consolidated</span>
+            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Consolidated Result</span>
           </a>
         </li>
       </ul>
