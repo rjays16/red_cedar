@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Consolidated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Config;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ConsolidatedExport;
 
 class ConsolidatedController extends Controller
 {
@@ -13,7 +16,7 @@ class ConsolidatedController extends Controller
         ini_set('max_execution_time', 60000);
         set_time_limit(600);
 
-        $list = DB::table('consolidated')
+        $list = DB::table('apgwellstarbiomed')
             ->orderBy('id') // Add an orderBy clause based on the primary key or any other appropriate column
             ->chunk(200, function ($records) {
                 // Process each chunk of 200 records

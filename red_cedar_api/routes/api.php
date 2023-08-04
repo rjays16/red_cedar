@@ -4,7 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ConsolidatedController;
 use App\Http\Controllers\BiomedController;
-use App\Http\Controllers\FileUploadController;
+use App\Http\Controllers\ResultController;
+use App\Http\Controllers\ConfigController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -23,4 +24,10 @@ Route::prefix('biomed')->group(function () {
 Route::prefix('consolidated')->group(function () {
     Route::get('', [ConsolidatedController::class,'getConsolidated']);
     Route::get('limit', [ConsolidatedController::class,'getConsolidatedlimit']);
+});
+
+
+Route::prefix('config')->group(function (){
+    Route::get('', [ConfigController::class,'getConfig']);
+    Route::put('{id}', [ConfigController::class,'update']);
 });

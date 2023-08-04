@@ -36,6 +36,7 @@
       <excludeFolder url="file://$MODULE_DIR$/red_cedar_api/vendor/league/flysystem" />
       <excludeFolder url="file://$MODULE_DIR$/red_cedar_api/vendor/league/flysystem-local" />
       <excludeFolder url="file://$MODULE_DIR$/red_cedar_api/vendor/league/mime-type-detection" />
+      <excludeFolder url="file://$MODULE_DIR$/red_cedar_api/vendor/maatwebsite/excel" />
       <excludeFolder url="file://$MODULE_DIR$/red_cedar_api/vendor/mockery/mockery" />
       <excludeFolder url="file://$MODULE_DIR$/red_cedar_api/vendor/monolog/monolog" />
       <excludeFolder url="file://$MODULE_DIR$/red_cedar_api/vendor/myclabs/deep-copy" />
@@ -47,6 +48,7 @@
       <excludeFolder url="file://$MODULE_DIR$/red_cedar_api/vendor/nunomaduro/termwind" />
       <excludeFolder url="file://$MODULE_DIR$/red_cedar_api/vendor/phar-io/manifest" />
       <excludeFolder url="file://$MODULE_DIR$/red_cedar_api/vendor/phar-io/version" />
+      <excludeFolder url="file://$MODULE_DIR$/red_cedar_api/vendor/phpoffice/phpexcel" />
       <excludeFolder url="file://$MODULE_DIR$/red_cedar_api/vendor/phpoption/phpoption" />
       <excludeFolder url="file://$MODULE_DIR$/red_cedar_api/vendor/phpunit/php-code-coverage" />
       <excludeFolder url="file://$MODULE_DIR$/red_cedar_api/vendor/phpunit/php-file-iterator" />

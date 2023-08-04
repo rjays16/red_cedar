@@ -1,5 +1,5 @@
 <template>
-  <ModalConsolidated/>
+  <Consolidated/>
 </template>
 
 <script>

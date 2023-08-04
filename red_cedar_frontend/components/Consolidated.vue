@@ -9,6 +9,15 @@
             <h2 class="mb-4">Consolidated</h2>
             <!--              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Upload">Upload CVS File</button>-->
             <!--              <button type="button" class="btn btn-success">Download CSV File</button>-->
+            <div class="container">
+              <div class="row">
+                <div class="col-md-2 mb-1"> <!-- Use col-md-6 to make the input take half of the row width -->
+                  <input type="number" class="form-control p-3" placeholder="Put limit Rows" v-model="inputLimit" />
+                </div>
+                <div class="col-md-1"> <!-- Use col-md-6 to make the button take half of the row width -->
+                  <button type="button" class="btn btn-primary btn-block" @click="updateItems(id, inputLimit)">Go</button>
+                </div>
+              </div>
             <b-table
               striped hover
               :items="items"
@@ -40,6 +49,7 @@
               ></b-pagination>
             </div>
           </div>
+          </div>
         </div>
       </div>
     </div>
@@ -48,6 +58,7 @@
 </template>
 
 <script>
+  import Swal from 'sweetalert2';
     export default {
         name: "Consolidated",
       data() {
@@ -58,6 +69,8 @@
           perPage: 10,
           isBusy: true,
           bordered: false,
+          inputLimit: 0,
+          id: 0,
         }
       },
       computed: {
@@ -77,9 +90,44 @@
               this.isBusy = false
             })
         },
+
+        getConfig(){
+          this.$store.dispatch("config/getAllConfig")
+            .then((res) => {
+                this.id = res.data[0].id;
+                this.inputLimit = res.data[0].limitrows
+              console.log(this.inputLimit);
+            })
+            .catch(err => {
+            })
+        },
+
+        updateItems(id, inputlimit){
+          this.$store.dispatch("config/update", {
+            id: id,
+            limitrows: inputlimit
+          })
+            .then((res) => {
+              Swal.fire({
+                title: 'Succesfully',
+                text: "Successfully Update Config",
+                icon: 'success',
+              });
+              setTimeout(() => {
+                window.location.reload()
+              }, 1000);
+            }).catch((err) => {
+            Swal.fire({
+              title: 'Hurry',
+              text: err,
+              icon: 'warning',
+            });
+          });
+        }
       },
       mounted() {
         this.getConsolidatedItems();
+        this.getConfig();
       }
     }
 </script>

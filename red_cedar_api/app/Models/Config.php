@@ -9,4 +9,5 @@ class Config extends Model
 {
     use HasFactory;
     protected $table = "config";
+    public $timestamps = false;
 }
