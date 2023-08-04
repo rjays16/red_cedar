@@ -112,9 +112,13 @@
       <path value="$PROJECT_DIR$/red_cedar_api/vendor/league/mime-type-detection" />
       <path value="$PROJECT_DIR$/red_cedar_api/vendor/league/config" />
       <path value="$PROJECT_DIR$/red_cedar_api/vendor/league/csv" />
-      <path value="$PROJECT_DIR$/red_cedar_api/vendor/phpoffice/phpexcel" />
       <path value="$PROJECT_DIR$/red_cedar_api/vendor/maatwebsite/excel" />
       <path value="$PROJECT_DIR$/red_cedar_api/vendor/laravel/prompts" />
+      <path value="$PROJECT_DIR$/red_cedar_api/vendor/maennchen/zipstream-php" />
+      <path value="$PROJECT_DIR$/red_cedar_api/vendor/markbaker/complex" />
+      <path value="$PROJECT_DIR$/red_cedar_api/vendor/markbaker/matrix" />
+      <path value="$PROJECT_DIR$/red_cedar_api/vendor/phpoffice/phpspreadsheet" />
+      <path value="$PROJECT_DIR$/red_cedar_api/vendor/ezyang/htmlpurifier" />
     </include_path>
   </component>
   <component name="PhpUnit">

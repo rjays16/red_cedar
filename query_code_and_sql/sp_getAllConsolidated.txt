@@ -1,0 +1,19 @@
+DELIMITER $$
+
+USE `phgdata_db`$$
+
+DROP PROCEDURE IF EXISTS `sp_getAllDataConsolidated`$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_getAllDataConsolidated`()
+BEGIN
+    DECLARE limit_val INT;
+    SET limit_val = (SELECT limitrows FROM config LIMIT 1); 
+
+    IF limit_val IS NOT NULL AND limit_val > 0 THEN
+        SELECT * FROM consolidated LIMIT limit_val;
+    ELSE
+        SELECT * FROM consolidated;
+    END IF;
+END$$
+
+DELIMITER ;

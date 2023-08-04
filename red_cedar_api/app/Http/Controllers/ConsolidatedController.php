@@ -55,13 +55,6 @@ class ConsolidatedController extends Controller
 
     public function getConsolidatedXLS()
     {
-        $filename = 'result.xls'; // The name of the output file
-        $config = Config::first();
-
-        if ($config && $config->limitrows > 0) {
-            return Excel::download(new ConsolidatedExport(), $filename);
-        } else {
-            return response()->json(['message' => 'Invalid limit'], 400);
-        }
+        return Excel::download(new ConsolidatedExport(), 'result.xlsx');
     }
 }
