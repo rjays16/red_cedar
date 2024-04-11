@@ -6,6 +6,8 @@ use App\Http\Controllers\ConsolidatedController;
 use App\Http\Controllers\BiomedController;
 use App\Http\Controllers\ResultController;
 use App\Http\Controllers\ConfigController;
+use App\Http\Controllers\MergedController;
+use App\Http\Controllers\PropertyController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -25,6 +27,14 @@ Route::prefix('consolidated')->group(function () {
     Route::get('', [ConsolidatedController::class,'getConsolidated']);
     Route::get('limit', [ConsolidatedController::class,'getConsolidatedlimit']);
     Route::get('xls', [ConsolidatedController::class, 'getConsolidatedXLS']);
+});
+
+Route::prefix('merged')->group(function () {
+    Route::get('', [MergedController::class,'getMergedData']);
+});
+
+Route::prefix('property')->group(function () {
+    Route::get('', [PropertyController::class,'getProperty']);
 });
 
 
