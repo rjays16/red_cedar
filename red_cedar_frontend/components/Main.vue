@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import MergedData from './MergedData.vue';
+import MergedData from "~/components/MergedData.vue";
 
   export default {
     data() {

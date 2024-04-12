@@ -7,14 +7,14 @@
       <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
         <li class="nav-item">
           <a href="/" class="nav-link align-middle px-0">
-            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Result</span>
+            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Merged Data</span>
           </a>
         </li>
-        <!-- <li class="nav-item">
-          <a href="/consolidated" class="nav-link align-middle px-0">
-            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Consolidated Result</span>
+         <li class="nav-item">
+          <a href="/property" class="nav-link align-middle px-0">
+            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Property</span>
           </a>
-        </li> -->
+        </li>
       </ul>
       <hr>
     </div>

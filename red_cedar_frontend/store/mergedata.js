@@ -8,9 +8,9 @@ const mutations = {
 };
 
 export const actions = {
-  getAllItemsBiomed(){
+  getAllItemsMergedata(){
     return new Promise((resolve, reject) => {
-      axios.get(`${process.env.BASE_URL}biomed`)
+      axios.get(`${process.env.BASE_URL}merged`)
         .then(res => {
           resolve(res)
         })

@@ -6,7 +6,7 @@
         <div class="wrapper d-flex align-items-stretch">
           <!-- Page Content  -->
           <div id="content" class="p-4 p-md-5 pt-5">
-            <h2 class="mb-4">Merged Data</h2>
+            <h2 class="mb-4">Property</h2>
             <!--              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Upload">Upload CVS File</button>-->
             <!--               <button type="button" class="btn btn-success floar-right">Download CSV File</button>-->
             <b-table
@@ -64,8 +64,8 @@ export default {
     }
   },
   methods: {
-    getMergedDataItems(){
-      this.$store.dispatch("mergedata/getAllItemsMergedata")
+    getPropertyItems(){
+      this.$store.dispatch("property/getAllItemsProperty")
         .then((res) => {
           this.items = res.data;
           this.isBusy = false
@@ -77,7 +77,7 @@ export default {
     },
   },
   mounted() {
-    this.getMergedDataItems();
+    this.getPropertyItems();
   }
 }
 </script>
