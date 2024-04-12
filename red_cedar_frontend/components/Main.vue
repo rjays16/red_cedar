@@ -1,8 +1,10 @@
 <template>
-  <Biomed/>
+  <MergedData/>
 </template>
 
 <script>
+import MergedData from './MergedData.vue';
+
   export default {
     data() {
       return {
