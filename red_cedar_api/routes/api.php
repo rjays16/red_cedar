@@ -37,6 +37,10 @@ Route::prefix('property')->group(function () {
     Route::get('', [PropertyController::class,'getProperty']);
 });
 
+Route::prefix('result')->group(function (){
+    Route::get('', [ResultController::class, 'getResult']);
+    Route::get('xls', [ResultController::class, 'getResultXLS']);
+});
 
 Route::prefix('config')->group(function (){
     Route::get('', [ConfigController::class,'getConfig']);

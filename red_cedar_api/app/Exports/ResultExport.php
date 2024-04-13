@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use App\Models\Config;
 
-class ConsolidatedExport implements WithHeadings, FromCollection
+class ResultExport implements WithHeadings, FromCollection
 {
     use Exportable;
 
@@ -20,13 +20,11 @@ class ConsolidatedExport implements WithHeadings, FromCollection
 
     public function collection()
     {
-        $mergedData = collect(DB::select("CALL sp_getAllDataMergedata"));
-
-        return $mergedData;
+        return collect(DB::select("CALL sp_apn"));
     }
 
-    public function getMergedDataXLS()
+    public function getResultXLS()
     {
-        return Excel::download(new MergedDataExport(), 'result.xlsx');
+        return Excel::download(new ResultExport(), 'result.xlsx');
     }
 }
