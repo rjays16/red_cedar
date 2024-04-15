@@ -3,12 +3,12 @@
 </script>
 
 <template>
-  <Property/>
+  <Result/>
 </template>
 
 <script>
 export default {
-  name: "property"
+  name: "result"
 }
 </script>
 
